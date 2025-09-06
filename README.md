@@ -2,14 +2,15 @@
 
 This repository contains a production‑ready implementation of a **Wasserstein DRO penalty** for portfolio updates. The idea is to hedge against distribution shift by penalizing divergence between the historical mean return vector and a stressed (perturbed) mean.
 
-**Penalty (generic form)**  
-`penalty = rho * || mu_p - mu_o ||_2`  
+**Penalty (generic form)**
+`penalty = rho * || mu_p - mu_o ||_2`
 Use `squared=True` to apply `rho * ||·||_2^2` instead.
 
-**Weight update**  
+**Weight update**
 `w' = Π_Δ( max(clip_min, w * (1 - penalty)) )`
 
 ## Quick start
+
 ```bash
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -18,6 +19,7 @@ python examples.py
 ```
 
 ## Usage
+
 ```python
 import numpy as np
 from dro_wasserstein import (
@@ -42,20 +44,23 @@ print("w1:", w1, "sum:", w1.sum())
 ```
 
 ## Files included
-- `dro_wasserstein.py` — penalty, simplex projection, helpers, and update.
-- `tests/test_dro_wasserstein.py` — invariants and monotonicity checks.
-- `tests/test_artifacts_exist.py` — checks presence of the paper PDF and Test.zip (skips gracefully if missing).
-- `.github/workflows/ci.yml` — run tests on push/PR.
-- `.github/workflows/release.yml` — GitHub Release on tags (works with Zenodo integration).
-- `CITATION.cff` — includes your ORCID.
-- `.zenodo.json` — Zenodo deposition metadata.
-- `requirements.txt`, `examples.py`, `CHANGELOG.md`, `LICENSE-CODE`, `LICENSE-DOCS`, `.gitignore`.
+
+* `dro_wasserstein.py` — penalty, simplex projection, helpers, and update.
+* `tests/test_dro_wasserstein.py` — invariants and monotonicity checks.
+* `tests/test_artifacts_exist.py` — checks presence of the paper PDF and Test.zip (skips gracefully if missing).
+* `.github/workflows/ci.yml` — run tests on push/PR.
+* `.github/workflows/release.yml` — GitHub Release on tags (works with Zenodo integration).
+* `CITATION.cff` — includes your ORCID.
+* `.zenodo.json` — Zenodo deposition metadata.
+* `requirements.txt`, `examples.py`, `CHANGELOG.md`, `LICENSE-CODE`, `LICENSE-DOCS`, `.gitignore`.
 
 ## ORCID & Zenodo
-- Author ORCID: **https://orcid.org/0009-0004-9601-5617**.
-- With GitHub↔Zenodo connected, pushing a tag (e.g., `v0.1.0`) will mint a DOI.
+
+* Author ORCID: **[https://orcid.org/0009-0004-9601-5617](https://orcid.org/0009-0004-9601-5617)**.
+* With GitHub↔Zenodo connected, pushing a tag (e.g., `v0.1.0`) will mint a DOI.
 
 **Publish checklist**
+
 1. Commit code, paper, and tests.
 2. Update versions in `CHANGELOG.md` and `CITATION.cff`.
 3. Tag a release: `git tag v0.1.0 && git push --tags`.
@@ -63,4 +68,5 @@ print("w1:", w1, "sum:", w1.sum())
 5. Ensure the DOI shows in your ORCID Works (add manually if needed).
 
 ## Citing
+
 See `CITATION.cff`. Replace the badge DOI after first release.
