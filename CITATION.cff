@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "Wasserstein Distributionally Robust Optimization (DRO) Module"
+version: "0.1.0"
+date-released: "2025-09-06"
+authors:
+  - family-names: "Villalobos-Gonzalez"
+    given-names: "Santiago de Jesus"
+    orcid: "https://orcid.org/0009-0004-9601-5617"
+type: software
+abstract: >
+  Reference implementation of a Wasserstein DRO penalty for portfolio updates.
+  The penalty scales with the L2 distance between a stressed mean vector and the
+  historical mean to guard against distribution shift. Includes tests and Zenodo/ORCID metadata.
+keywords:
+  - DRO
+  - Wasserstein
+  - robustness
+  - portfolio optimization
+  - quantitative finance
+license: MIT
+repository-code: "https://github.com/OWNER/REPO"
+identifiers: []
